@@ -1,4 +1,4 @@
-# Una aplicación de escritorio con PySide2 (Qt) y el orm peewee
+# Tiberio
 
 ## Requerimientos
 - Python 3.5 o superior
