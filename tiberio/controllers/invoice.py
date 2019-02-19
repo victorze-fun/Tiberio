@@ -1,7 +1,9 @@
-from PySide2.QtWidgets import QDialog, QTreeWidgetItem
+from PySide2.QtWidgets import QDialog
 from PySide2.QtCore import Slot, Qt
 
-from controllers.customer import FormCustomer
+from controllers.search_customer import FormSearchCustomer
+from controllers.product import FormProduct
+
 from views.ui_invoice import Ui_Invoice
 
 
@@ -11,37 +13,39 @@ class FormInvoice(QDialog):
         self.ui = Ui_Invoice()
         self.ui.setupUi(self)
         self.setFixedSize(self.size())
-        self.ui.treeProductos.setAlternatingRowColors(True)
+        self.ui.treeProducts.setAlternatingRowColors(True)
+
+        self.ui.cboDocType.addItem('Factura')
+        self.ui.cboCurrency.addItem('Soles')
 
         self.set_col_width_tree_widget()
 
-        self.ui.btnCancelar.clicked.connect(self.close)
-        self.ui.btnAgregarProd.clicked.connect(self.agregar_producto)
-        self.ui.txtRuc.returnPressed.connect(self.buscar_cliente)
+        self.ui.txtDocCustomer.returnPressed.connect(self.search_customer)
+        self.ui.btnSave.clicked.connect(self.save_invoice)
+        self.ui.btnCancel.clicked.connect(self.close)
+        self.ui.btnItem.clicked.connect(self.open_form_product)
+
 
     def set_col_width_tree_widget(self):
-        self.ui.treeProductos.setColumnWidth(0, 60)
-        self.ui.treeProductos.setColumnWidth(1, 150)
-        self.ui.treeProductos.setColumnWidth(2, 70)
-        self.ui.treeProductos.setColumnWidth(3, 80)
+        self.ui.treeProducts.setColumnWidth(0, 70)
+        self.ui.treeProducts.setColumnWidth(1, 80)
+        self.ui.treeProducts.setColumnWidth(2, 70)
+        self.ui.treeProducts.setColumnWidth(3, 190)
+        self.ui.treeProducts.setColumnWidth(4, 90)
+        self.ui.treeProducts.setColumnWidth(5, 90)
 
     @Slot()
-    def agregar_producto(self):
-        print('add prod')
-        f = QTreeWidgetItem(self.ui.treeProductos, [
-            self.ui.txtCantidad.text(),
-            self.ui.txtProducto.text(),
-            self.ui.txtPrecio.text(),
-        ])
-        f.setTextAlignment(0, Qt.AlignRight)
-        f.setTextAlignment(1, Qt.AlignLeft)
-        f.setTextAlignment(2, Qt.AlignRight)
-        f.setTextAlignment(3, Qt.AlignRight)
-        #QTreeWidgetItem(self.ui.treeProductos, ['1', 'IMPRESORA KYOCERA', '500.00', '500.00'])
+    def open_form_product(self):
+        ui_product = FormProduct(self)
+        ui_product.exec_()
 
     @Slot()
-    def buscar_cliente(self):
+    def search_customer(self):
         print('search')
-        ui_cliente = FormCustomer(self)
+        ui_cliente = FormSearchCustomer(self)
         ui_cliente.exec_()
+
+    @Slot()
+    def save_invoice(self):
+        print('Saved invoice')
 
