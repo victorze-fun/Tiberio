@@ -1,8 +1,8 @@
 from PySide2.QtWidgets import QDialog, QTreeWidgetItem
 from PySide2.QtCore import Slot, Qt
 
-from views.customer import FormCustomer
-from ui.ui_invoice import Ui_Invoice
+from controllers.customer import FormCustomer
+from views.ui_invoice import Ui_Invoice
 
 
 class FormInvoice(QDialog):

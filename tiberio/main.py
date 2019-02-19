@@ -3,7 +3,7 @@ import sys
 from PySide2.QtWidgets import QApplication, QMainWindow, QDialog, QTreeWidgetItem
 from PySide2.QtCore import Qt
 
-from views.main import MainWindow
+from controllers.main import MainWindow
 
 if __name__ == '__main__':
     QApplication.setAttribute(Qt.AA_DisableWindowContextHelpButton)

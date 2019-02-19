@@ -1,7 +1,7 @@
 from PySide2.QtWidgets import QDialog
 from PySide2.QtCore import Slot
 
-from ui.ui_customer import Ui_Customer
+from views.ui_customer import Ui_Customer
 
 
 class FormCustomer(QDialog):

@@ -1,9 +1,9 @@
 from PySide2.QtWidgets import QApplication, QMainWindow, QDialog, QTreeWidgetItem
 from PySide2.QtCore import Qt, Slot
 
-from ui.ui_main import Ui_MainWindow
-from views.customer import FormCustomer
-from views.invoice import FormInvoice
+from views.ui_main import Ui_MainWindow
+from controllers.customer import FormCustomer
+from controllers.invoice import FormInvoice
 
 class MainWindow(QMainWindow):
     def __init__(self):
