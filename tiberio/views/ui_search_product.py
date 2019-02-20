@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'search_product.ui',
 # licensing of 'search_product.ui' applies.
 #
-# Created: Tue Feb 19 17:59:49 2019
+# Created: Tue Feb 19 19:09:33 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -16,6 +16,7 @@ class Ui_SearchProduct(object):
         SearchProduct.resize(501, 279)
         self.treeProducts = QtWidgets.QTreeWidget(SearchProduct)
         self.treeProducts.setGeometry(QtCore.QRect(10, 10, 481, 261))
+        self.treeProducts.setIndentation(0)
         self.treeProducts.setObjectName("treeProducts")
         item_0 = QtWidgets.QTreeWidgetItem(self.treeProducts)
         item_0 = QtWidgets.QTreeWidgetItem(self.treeProducts)
