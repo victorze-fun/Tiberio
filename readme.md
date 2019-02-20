@@ -1,4 +1,5 @@
 # Tiberio
+![](https://raw.githubusercontent.com/victorze-fun/Tiberio/master/tiberio.gif)
 
 ## Requerimientos
 - Python 3.5 o superior
@@ -8,7 +9,7 @@
 git clone git@github.com:victorze-fun/Tiberio.git
 cd Tiberio
 virtualenv venv -p python (opcional)
-pip install -r requirements.txt
+pip install PySide2
 python tiberio/main.py (previamente se debe activar el entorno virtual)
 ```
 
